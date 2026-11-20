@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esmalte · Agende sua consulta (demo)</title>
+<meta name="description" content="Demonstração de agendamento online para consultório odontológico, feita pela NEXTECH.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#13211d">
+<link rel="preload" href="/assets/fonts/fraunces-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/karla-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<script src="/assets/js/demo/servidor.js?v=1"></script>
+<link rel="icon" href="/assets/img/marca.svg" type="image/svg+xml">
+</head>
+<body class="pg-inicio">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<p class="faixa-demo" role="note"><strong>Demonstração NEXTECH.</strong> Clínica, profissionais, registros e horários são fictícios. O que você agendar fica só neste navegador e some ao fechar a aba.</p>
+    <header class="topo" id="topo">
+  <a class="marca" href="/" aria-label="Esmalte, página inicial"><svg class="marca-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 30c0-14 6-22 14-22s14 8 14 22" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><circle cx="20" cy="28" r="3.4" fill="currentColor"/></svg><span>Esmalte</span></a>
+  <nav class="topo-nav" aria-label="Principal">
+    <a href="#equipe">Equipe</a>
+    <a href="#antes">Antes de vir</a>
+    <a class="btn btn-lima btn-pequeno" href="#agendar">Agendar</a>
+  </nav>
+</header>
+
+<main id="conteudo">
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="hero-midia" aria-hidden="true">
+      <video class="hero-video" muted loop playsinline preload="none" poster="/assets/video/hero-poster.jpg" data-autoplay>
+        <source src="/assets/video/hero.webm" type="video/webm">
+        <source src="/assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-grao"></div>
+    </div>
+    <div class="hero-in">
+      <p class="sobretitulo">Odontologia · Cidade Demo</p>
+      <h1 id="hero-titulo" class="hero-titulo">
+        <span class="linha"><span>Sua consulta</span></span>
+        <span class="linha"><span>no horário que</span></span>
+        <span class="linha"><span><em>cabe</em> no seu dia.</span></span>
+      </h1>
+      <p class="hero-texto">Escolha o tratamento, quem vai te atender e um horário que está livre de verdade. Leva menos de um minuto e não precisa ligar.</p>
+      <div class="hero-acoes">
+        <a class="btn btn-lima" href="#agendar">Escolher meu horário <span class="seta" aria-hidden="true">→</span></a>
+                <p class="proximo" id="proximo" hidden><span class="pulso" aria-hidden="true"></span><span>Próximo horário livre: <strong id="proximo-quando"></strong> com <span id="proximo-dent"></span></span></p>
+              </div>
+    </div>
+    <button class="video-controle" type="button" aria-pressed="false" hidden>
+      <span class="vc-pausar">Pausar animação</span><span class="vc-tocar">Tocar animação</span>
+    </button>
+  </section>
+
+  <section class="agendar" id="agendar" aria-labelledby="agendar-titulo">
+    <div class="agendar-cabeca">
+      <p class="sobretitulo sobretitulo-escuro">Agendamento</p>
+      <h2 id="agendar-titulo">Quatro escolhas e pronto.</h2>
+    </div>
+
+    <noscript><p class="aviso">Para ver os horários livres, ative o JavaScript. Ou chame a recepção no <a href="https://wa.me/5517997565260">WhatsApp</a>.</p></noscript>
+
+    <div class="agendar-grade">
+      <form class="fluxo" id="fluxo" novalidate data-csrf="demo">
+        <ol class="passos-indice" aria-label="Etapas">
+          <li data-indice="1" aria-current="step"><span>01</span> Tratamento</li>
+          <li data-indice="2"><span>02</span> Profissional</li>
+          <li data-indice="3"><span>03</span> Dia e hora</li>
+          <li data-indice="4"><span>04</span> Seus dados</li>
+        </ol>
+
+        <fieldset class="passo" data-passo="1">
+          <legend><span class="passo-num">01</span> O que você precisa?</legend>
+          <div class="lista-proc" role="radiogroup" aria-label="Tratamento">
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="1">
+              <span class="proc-nome">Avaliação</span>
+              <span class="proc-resumo">Primeira conversa, exame clínico e plano de tratamento sem pressa.</span>
+              <span class="proc-dur" aria-label="Duração: 30 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i></span>30 min
+              </span>
+            </label>
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="2">
+              <span class="proc-nome">Limpeza e prevenção</span>
+              <span class="proc-resumo">Profilaxia, remoção de tártaro e orientação de escovação.</span>
+              <span class="proc-dur" aria-label="Duração: 60 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i><i></i></span>60 min
+              </span>
+            </label>
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="3">
+              <span class="proc-nome">Clareamento</span>
+              <span class="proc-resumo">Sessão de clareamento em consultório, com avaliação de sensibilidade.</span>
+              <span class="proc-dur" aria-label="Duração: 60 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i><i></i></span>60 min
+              </span>
+            </label>
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="4">
+              <span class="proc-nome">Restauração</span>
+              <span class="proc-resumo">Tratamento de cárie ou troca de restauração antiga.</span>
+              <span class="proc-dur" aria-label="Duração: 60 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i><i></i></span>60 min
+              </span>
+            </label>
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="5">
+              <span class="proc-nome">Manutenção de aparelho</span>
+              <span class="proc-resumo">Ajuste mensal de aparelho fixo ou alinhadores.</span>
+              <span class="proc-dur" aria-label="Duração: 30 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i></span>30 min
+              </span>
+            </label>
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="6">
+              <span class="proc-nome">Implante · avaliação</span>
+              <span class="proc-resumo">Estudo do caso e pedido de tomografia, quando necessário.</span>
+              <span class="proc-dur" aria-label="Duração: 30 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i></span>30 min
+              </span>
+            </label>
+                        <label class="proc">
+              <input type="radio" name="procedimento" value="7">
+              <span class="proc-nome">Dor ou urgência</span>
+              <span class="proc-resumo">Encaixe para dor, dente quebrado ou inchaço.</span>
+              <span class="proc-dur" aria-label="Duração: 30 minutos">
+                <span class="dur-blocos" aria-hidden="true"><i></i></span>30 min
+              </span>
+            </label>
+                      </div>
+        </fieldset>
+
+        <fieldset class="passo" data-passo="2" disabled>
+          <legend><span class="passo-num">02</span> Com quem?</legend>
+          <div class="lista-dent" role="radiogroup" aria-label="Profissional">
+            <label class="dent dent-qualquer">
+              <input type="radio" name="dentista" value="0">
+              <span class="dent-avatar" aria-hidden="true">✳︎</span>
+              <span class="dent-nome">Primeiro horário livre</span>
+              <span class="dent-esp">Quem estiver disponível antes</span>
+            </label>
+                        <label class="dent" data-procs="1,2,3,4,7">
+              <input type="radio" name="dentista" value="1">
+              <span class="dent-avatar cor-a" aria-hidden="true">HP</span>
+              <span class="dent-nome">Dra. Helena Prado</span>
+              <span class="dent-esp">Clínica geral e estética</span>
+            </label>
+                        <label class="dent" data-procs="1,5,7">
+              <input type="radio" name="dentista" value="2">
+              <span class="dent-avatar cor-b" aria-hidden="true">CM</span>
+              <span class="dent-nome">Dr. Caio Moreira</span>
+              <span class="dent-esp">Ortodontia</span>
+            </label>
+                        <label class="dent" data-procs="1,4,6,7">
+              <input type="radio" name="dentista" value="3">
+              <span class="dent-avatar cor-c" aria-hidden="true">LT</span>
+              <span class="dent-nome">Dra. Lívia Tanaka</span>
+              <span class="dent-esp">Implantes e reabilitação</span>
+            </label>
+                      </div>
+        </fieldset>
+
+        <fieldset class="passo" data-passo="3" disabled>
+          <legend><span class="passo-num">03</span> Quando fica bom?</legend>
+          <div class="dias-wrap">
+            <div class="dias" id="dias" role="radiogroup" aria-label="Dia"></div>
+          </div>
+          <div class="horarios" id="horarios" aria-live="polite"></div>
+        </fieldset>
+
+        <fieldset class="passo" data-passo="4" disabled>
+          <legend><span class="passo-num">04</span> Para quem é a consulta?</legend>
+          <div class="campos">
+            <div class="campo">
+              <label for="nome">Nome completo</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" maxlength="80" required>
+            </div>
+            <div class="campo">
+              <label for="whatsapp">WhatsApp com DDD</label>
+              <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="16" placeholder="(17) 99999-9999" required aria-describedby="whats-ajuda">
+              <small id="whats-ajuda">É por ele que a clínica confirma o horário.</small>
+            </div>
+            <div class="campo campo-largo">
+              <label for="observacao">Algo que a recepção deva saber? <span class="opcional">(opcional)</span></label>
+              <textarea id="observacao" name="observacao" rows="2" maxlength="200" aria-describedby="obs-ajuda"></textarea>
+              <small id="obs-ajuda">Ex.: prefere ser chamado pelo apelido. Não precisa contar detalhes de saúde aqui.</small>
+            </div>
+            <div class="campo-isca" aria-hidden="true">
+              <label for="site">Deixe em branco</label>
+              <input id="site" name="site" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <label class="consentimento campo-largo">
+              <input type="checkbox" name="consentimento" id="consentimento" required>
+              <span>Autorizo a clínica a usar meu nome e WhatsApp só para cuidar deste agendamento. <a href="/privacidade.html" target="_blank" rel="noopener">Como meus dados são tratados</a>.</span>
+            </label>
+          </div>
+          <p class="erro-form" id="erro-form" role="alert" hidden></p>
+          <button class="btn btn-escuro btn-enviar" type="submit">
+            <span class="txt">Confirmar agendamento</span><span class="carregando" aria-hidden="true"></span>
+          </button>
+        </fieldset>
+      </form>
+
+      <section class="sucesso" id="sucesso" hidden tabindex="-1" aria-labelledby="sucesso-titulo">
+        <p class="carimbo" aria-hidden="true">Reservado</p>
+        <h2 id="sucesso-titulo">Horário reservado, <span data-s="nome"></span>.</h2>
+        <p class="sucesso-texto">Guardamos <strong data-s="quando"></strong> para você. A recepção confirma pelo WhatsApp. Se quiser adiantar, mande a mensagem pronta abaixo.</p>
+        <div class="sucesso-acoes">
+          <a class="btn btn-lima" data-s-href="whatsapp" href="#" rel="noopener" target="_blank">Avisar a clínica no WhatsApp</a>
+          <a class="btn btn-contorno" data-s-href="ics" href="#">Salvar na minha agenda</a>
+        </div>
+        <div class="sucesso-link">
+          <p><strong>Guarde este link.</strong> Por ele você vê ou cancela a consulta. Ele não aparece de novo.</p>
+          <div class="copiar">
+            <input type="text" readonly id="link-gestao" aria-label="Link para ver ou cancelar a consulta">
+            <button class="btn btn-contorno btn-pequeno" type="button" id="copiar-link">Copiar</button>
+          </div>
+        </div>
+        <p class="preparo" data-s="preparo" hidden></p>
+      </section>
+
+      <aside class="bilhete" id="bilhete" aria-label="Resumo do agendamento">
+        <div class="bilhete-topo">
+          <span class="marca-mini"><svg class="marca-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 30c0-14 6-22 14-22s14 8 14 22" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><circle cx="20" cy="28" r="3.4" fill="currentColor"/></svg></span>
+          <span class="bilhete-rotulo" id="bilhete-rotulo">Seu horário</span>
+          <span class="bilhete-codigo" id="bilhete-codigo" aria-hidden="true">— — —</span>
+        </div>
+        <dl class="bilhete-dados">
+          <div><dt>Tratamento</dt><dd data-campo="procedimento">a escolher</dd></div>
+          <div><dt>Profissional</dt><dd data-campo="dentista">a escolher</dd></div>
+          <div><dt>Dia</dt><dd data-campo="dia">a escolher</dd></div>
+          <div><dt>Hora</dt><dd data-campo="hora" class="bilhete-hora">--:--</dd></div>
+        </dl>
+        <div class="bilhete-picote" aria-hidden="true"></div>
+        <p class="bilhete-rodape" id="bilhete-rodape">Nada é reservado até você confirmar.</p>
+      </aside>
+    </div>
+
+  </section>
+
+  <section class="equipe" id="equipe" aria-labelledby="equipe-titulo">
+    <div class="equipe-cabeca">
+      <p class="sobretitulo sobretitulo-escuro">Equipe</p>
+      <h2 id="equipe-titulo">Três pessoas, <em>uma agenda</em>.</h2>
+      <p>Todo mundo enxerga os mesmos horários. Quando você reserva, o horário some para os outros na hora.</p>
+    </div>
+    <ol class="equipe-lista">
+            <li class="pessoa">
+        <span class="pessoa-num" aria-hidden="true">01</span>
+        <span class="dent-avatar dent-avatar-g cor-a" aria-hidden="true">HP</span>
+        <div>
+          <h3>Dra. Helena Prado</h3>
+          <p class="pessoa-esp">Clínica geral e estética · <span class="placeholder">CRO-SP 00000 · fictício</span></p>
+          <p>Cuida da maior parte das avaliações e dos clareamentos.</p>
+        </div>
+      </li>
+            <li class="pessoa">
+        <span class="pessoa-num" aria-hidden="true">02</span>
+        <span class="dent-avatar dent-avatar-g cor-b" aria-hidden="true">CM</span>
+        <div>
+          <h3>Dr. Caio Moreira</h3>
+          <p class="pessoa-esp">Ortodontia · <span class="placeholder">CRO-SP 00000 · fictício</span></p>
+          <p>Aparelhos fixos, alinhadores e acompanhamento de crianças.</p>
+        </div>
+      </li>
+            <li class="pessoa">
+        <span class="pessoa-num" aria-hidden="true">03</span>
+        <span class="dent-avatar dent-avatar-g cor-c" aria-hidden="true">LT</span>
+        <div>
+          <h3>Dra. Lívia Tanaka</h3>
+          <p class="pessoa-esp">Implantes e reabilitação · <span class="placeholder">CRO-SP 00000 · fictício</span></p>
+          <p>Planejamento de implantes e casos de reabilitação oral.</p>
+        </div>
+      </li>
+          </ol>
+  </section>
+
+  <section class="antes" id="antes" aria-labelledby="antes-titulo">
+    <h2 id="antes-titulo">Antes de vir</h2>
+    <div class="faq">
+      <details>
+        <summary>Preciso confirmar o horário?</summary>
+        <p>A recepção manda uma mensagem pelo WhatsApp. Enquanto isso, o horário já fica guardado no seu nome.</p>
+      </details>
+      <details>
+        <summary>E se eu não puder ir?</summary>
+        <p>Use o link que aparece depois de agendar para cancelar. O horário volta a ficar livre para outra pessoa.</p>
+      </details>
+      <details>
+        <summary>É urgência?</summary>
+        <p>Escolha “Dor ou urgência” para o primeiro encaixe. Com febre, inchaço que aumenta rápido ou dificuldade para respirar, procure um pronto-socorro.</p>
+      </details>
+      <details>
+        <summary>O que vocês fazem com meus dados?</summary>
+        <p>Só nome e WhatsApp, usados para este agendamento. Depois de 180 dias, os dados são apagados. <a href="/privacidade.html">Detalhes</a>.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<script type="application/json" id="dados">{"procedimentos":[{"id":1,"nome":"Avaliação","resumo":"Primeira conversa, exame clínico e plano de tratamento sem pressa.","duracao":30,"preparo":"Traga exames ou radiografias recentes, se tiver."},{"id":2,"nome":"Limpeza e prevenção","resumo":"Profilaxia, remoção de tártaro e orientação de escovação.","duracao":60,"preparo":""},{"id":3,"nome":"Clareamento","resumo":"Sessão de clareamento em consultório, com avaliação de sensibilidade.","duracao":60,"preparo":"Evite café, vinho e alimentos com corante nas 48 h seguintes."},{"id":4,"nome":"Restauração","resumo":"Tratamento de cárie ou troca de restauração antiga.","duracao":60,"preparo":""},{"id":5,"nome":"Manutenção de aparelho","resumo":"Ajuste mensal de aparelho fixo ou alinhadores.","duracao":30,"preparo":"Escove bem os dentes antes de vir."},{"id":6,"nome":"Implante · avaliação","resumo":"Estudo do caso e pedido de tomografia, quando necessário.","duracao":30,"preparo":"Traga a lista de remédios que usa."},{"id":7,"nome":"Dor ou urgência","resumo":"Encaixe para dor, dente quebrado ou inchaço.","duracao":30,"preparo":"Com febre ou inchaço que piora rápido, procure um pronto-socorro."}],"dentistas":[{"id":1,"nome":"Dra. Helena Prado","especialidade":"Clínica geral e estética","cor":"a","procedimentos":[1,2,3,4,7]},{"id":2,"nome":"Dr. Caio Moreira","especialidade":"Ortodontia","cor":"b","procedimentos":[1,5,7]},{"id":3,"nome":"Dra. Lívia Tanaka","especialidade":"Implantes e reabilitação","cor":"c","procedimentos":[1,4,6,7]}]}</script>
+<script src="/assets/js/demo/paginas.js?v=1" defer></script>
+<script src="/assets/js/hero.js?v=1" defer></script>
+<script src="/assets/js/agendar.js?v=1" defer></script>
+<footer class="rodape">
+  <div class="rodape-in">
+    <div>
+      <a class="marca marca-rodape" href="/"><svg class="marca-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 30c0-14 6-22 14-22s14 8 14 22" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><circle cx="20" cy="28" r="3.4" fill="currentColor"/></svg><span>Esmalte</span></a>
+      <p>Estúdio de odontologia · Rua Exemplo, 000 · Centro · Cidade Demo/SP</p>
+      <p>Responsável técnico: Dra. Exemplo · CRO-SP 00000 (fictício)</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="/privacidade.html">Privacidade e seus dados</a>
+      <a href="/admin/">Acesso da recepção</a>
+    </nav>
+    <p class="rodape-nextech">Demonstração criada pela <a href="https://nextechwebstudio.netlify.app" rel="noopener">NEXTECH</a>. Nada aqui é uma clínica real.</p>
+  </div>
+</footer>
+</body>
+</html>
+    

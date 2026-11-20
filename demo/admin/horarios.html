@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="pt-BR" data-exige-login>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Horários e folgas · Recepção (demo)</title>
+<link rel="stylesheet" href="/assets/css/admin.css?v=1">
+<script src="/assets/js/demo/servidor.js?v=1"></script>
+<link rel="icon" href="/assets/img/marca.svg" type="image/svg+xml">
+</head>
+<body class="painel">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="barra">
+  <a class="barra-marca" href="/admin/"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30c0-14 6-22 14-22s14 8 14 22" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><circle cx="20" cy="28" r="3.4" fill="currentColor"/></svg><span>Esmalte</span><small>recepção · demo</small></a>
+  <nav class="barra-nav" aria-label="Painel">
+    <a href="/admin/">Agenda</a>
+    <a href="/admin/horarios.html" aria-current="page">Horários e folgas</a>
+  </nav>
+  <div class="barra-sair">
+    <span class="barra-user">Recepção</span>
+    <button class="b b-fantasma b-p" type="button" id="sair">Sair</button>
+  </div>
+</header>
+<main id="conteudo" class="config">
+  <h1>Horários e folgas</h1>
+  <p class="ok" id="msg" role="status" hidden></p>
+  <p class="erro" id="erro" role="alert" hidden></p>
+    
+  <section class="cartao" aria-labelledby="exp-titulo">
+    <h2 id="exp-titulo">Expediente de cada profissional</h2>
+    <p class="sub">Deixe em branco o turno que não atende. Os horários aparecem no site em blocos de 30 minutos.</p>
+        <details class="exp" open>
+      <summary><i class="ponto cor-a" aria-hidden="true"></i> Dra. Helena Prado <small>Clínica geral e estética</small></summary>
+      <form class="exp-form">
+        <input type="hidden" name="acao" value="expediente">
+        <input type="hidden" name="dentista" value="1">
+        <table class="exp-tab">
+          <thead><tr><th scope="col">Dia</th><th scope="col">1º turno</th><th scope="col">2º turno</th></tr></thead>
+          <tbody>
+                      <tr>
+              <th scope="row">Segunda</th>
+                            <td>
+                <label class="sr" for="d1-1-1i">segunda, turno 1, início</label>
+                <input type="time" step="1800" id="d1-1-1i" name="d1i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-1-1f">segunda, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-1-1f" name="d1f1">
+              </td>
+                            <td>
+                <label class="sr" for="d1-1-2i">segunda, turno 2, início</label>
+                <input type="time" step="1800" id="d1-1-2i" name="d1i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-1-2f">segunda, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-1-2f" name="d1f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Terça</th>
+                            <td>
+                <label class="sr" for="d1-2-1i">terça, turno 1, início</label>
+                <input type="time" step="1800" id="d1-2-1i" name="d2i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-2-1f">terça, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-2-1f" name="d2f1">
+              </td>
+                            <td>
+                <label class="sr" for="d1-2-2i">terça, turno 2, início</label>
+                <input type="time" step="1800" id="d1-2-2i" name="d2i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-2-2f">terça, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-2-2f" name="d2f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Quarta</th>
+                            <td>
+                <label class="sr" for="d1-3-1i">quarta, turno 1, início</label>
+                <input type="time" step="1800" id="d1-3-1i" name="d3i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-3-1f">quarta, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-3-1f" name="d3f1">
+              </td>
+                            <td>
+                <label class="sr" for="d1-3-2i">quarta, turno 2, início</label>
+                <input type="time" step="1800" id="d1-3-2i" name="d3i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-3-2f">quarta, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-3-2f" name="d3f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Quinta</th>
+                            <td>
+                <label class="sr" for="d1-4-1i">quinta, turno 1, início</label>
+                <input type="time" step="1800" id="d1-4-1i" name="d4i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-4-1f">quinta, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-4-1f" name="d4f1">
+              </td>
+                            <td>
+                <label class="sr" for="d1-4-2i">quinta, turno 2, início</label>
+                <input type="time" step="1800" id="d1-4-2i" name="d4i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-4-2f">quinta, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-4-2f" name="d4f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Sexta</th>
+                            <td>
+                <label class="sr" for="d1-5-1i">sexta, turno 1, início</label>
+                <input type="time" step="1800" id="d1-5-1i" name="d5i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-5-1f">sexta, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-5-1f" name="d5f1">
+              </td>
+                            <td>
+                <label class="sr" for="d1-5-2i">sexta, turno 2, início</label>
+                <input type="time" step="1800" id="d1-5-2i" name="d5i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-5-2f">sexta, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-5-2f" name="d5f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Sábado</th>
+                            <td>
+                <label class="sr" for="d1-6-1i">sábado, turno 1, início</label>
+                <input type="time" step="1800" id="d1-6-1i" name="d6i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-6-1f">sábado, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-6-1f" name="d6f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d1-6-2i">sábado, turno 2, início</label>
+                <input type="time" step="1800" id="d1-6-2i" name="d6i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-6-2f">sábado, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-6-2f" name="d6f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Domingo</th>
+                            <td>
+                <label class="sr" for="d1-0-1i">domingo, turno 1, início</label>
+                <input type="time" step="1800" id="d1-0-1i" name="d0i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-0-1f">domingo, turno 1, fim</label>
+                <input type="time" step="1800" id="d1-0-1f" name="d0f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d1-0-2i">domingo, turno 2, início</label>
+                <input type="time" step="1800" id="d1-0-2i" name="d0i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d1-0-2f">domingo, turno 2, fim</label>
+                <input type="time" step="1800" id="d1-0-2f" name="d0f2" value="">
+              </td>
+                          </tr>
+                    </tbody>
+        </table>
+        <button class="b b-lima" type="submit">Salvar expediente</button>
+      </form>
+    </details>
+        <details class="exp" >
+      <summary><i class="ponto cor-b" aria-hidden="true"></i> Dr. Caio Moreira <small>Ortodontia</small></summary>
+      <form class="exp-form">
+        <input type="hidden" name="acao" value="expediente">
+        <input type="hidden" name="dentista" value="2">
+        <table class="exp-tab">
+          <thead><tr><th scope="col">Dia</th><th scope="col">1º turno</th><th scope="col">2º turno</th></tr></thead>
+          <tbody>
+                      <tr>
+              <th scope="row">Segunda</th>
+                            <td>
+                <label class="sr" for="d2-1-1i">segunda, turno 1, início</label>
+                <input type="time" step="1800" id="d2-1-1i" name="d1i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-1-1f">segunda, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-1-1f" name="d1f1">
+              </td>
+                            <td>
+                <label class="sr" for="d2-1-2i">segunda, turno 2, início</label>
+                <input type="time" step="1800" id="d2-1-2i" name="d1i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-1-2f">segunda, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-1-2f" name="d1f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Terça</th>
+                            <td>
+                <label class="sr" for="d2-2-1i">terça, turno 1, início</label>
+                <input type="time" step="1800" id="d2-2-1i" name="d2i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-2-1f">terça, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-2-1f" name="d2f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d2-2-2i">terça, turno 2, início</label>
+                <input type="time" step="1800" id="d2-2-2i" name="d2i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-2-2f">terça, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-2-2f" name="d2f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Quarta</th>
+                            <td>
+                <label class="sr" for="d2-3-1i">quarta, turno 1, início</label>
+                <input type="time" step="1800" id="d2-3-1i" name="d3i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-3-1f">quarta, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-3-1f" name="d3f1">
+              </td>
+                            <td>
+                <label class="sr" for="d2-3-2i">quarta, turno 2, início</label>
+                <input type="time" step="1800" id="d2-3-2i" name="d3i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-3-2f">quarta, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-3-2f" name="d3f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Quinta</th>
+                            <td>
+                <label class="sr" for="d2-4-1i">quinta, turno 1, início</label>
+                <input type="time" step="1800" id="d2-4-1i" name="d4i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-4-1f">quinta, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-4-1f" name="d4f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d2-4-2i">quinta, turno 2, início</label>
+                <input type="time" step="1800" id="d2-4-2i" name="d4i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-4-2f">quinta, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-4-2f" name="d4f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Sexta</th>
+                            <td>
+                <label class="sr" for="d2-5-1i">sexta, turno 1, início</label>
+                <input type="time" step="1800" id="d2-5-1i" name="d5i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-5-1f">sexta, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-5-1f" name="d5f1">
+              </td>
+                            <td>
+                <label class="sr" for="d2-5-2i">sexta, turno 2, início</label>
+                <input type="time" step="1800" id="d2-5-2i" name="d5i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-5-2f">sexta, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-5-2f" name="d5f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Sábado</th>
+                            <td>
+                <label class="sr" for="d2-6-1i">sábado, turno 1, início</label>
+                <input type="time" step="1800" id="d2-6-1i" name="d6i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-6-1f">sábado, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-6-1f" name="d6f1">
+              </td>
+                            <td>
+                <label class="sr" for="d2-6-2i">sábado, turno 2, início</label>
+                <input type="time" step="1800" id="d2-6-2i" name="d6i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-6-2f">sábado, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-6-2f" name="d6f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Domingo</th>
+                            <td>
+                <label class="sr" for="d2-0-1i">domingo, turno 1, início</label>
+                <input type="time" step="1800" id="d2-0-1i" name="d0i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-0-1f">domingo, turno 1, fim</label>
+                <input type="time" step="1800" id="d2-0-1f" name="d0f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d2-0-2i">domingo, turno 2, início</label>
+                <input type="time" step="1800" id="d2-0-2i" name="d0i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d2-0-2f">domingo, turno 2, fim</label>
+                <input type="time" step="1800" id="d2-0-2f" name="d0f2" value="">
+              </td>
+                          </tr>
+                    </tbody>
+        </table>
+        <button class="b b-lima" type="submit">Salvar expediente</button>
+      </form>
+    </details>
+        <details class="exp" >
+      <summary><i class="ponto cor-c" aria-hidden="true"></i> Dra. Lívia Tanaka <small>Implantes e reabilitação</small></summary>
+      <form class="exp-form">
+        <input type="hidden" name="acao" value="expediente">
+        <input type="hidden" name="dentista" value="3">
+        <table class="exp-tab">
+          <thead><tr><th scope="col">Dia</th><th scope="col">1º turno</th><th scope="col">2º turno</th></tr></thead>
+          <tbody>
+                      <tr>
+              <th scope="row">Segunda</th>
+                            <td>
+                <label class="sr" for="d3-1-1i">segunda, turno 1, início</label>
+                <input type="time" step="1800" id="d3-1-1i" name="d1i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-1-1f">segunda, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-1-1f" name="d1f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d3-1-2i">segunda, turno 2, início</label>
+                <input type="time" step="1800" id="d3-1-2i" name="d1i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-1-2f">segunda, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-1-2f" name="d1f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Terça</th>
+                            <td>
+                <label class="sr" for="d3-2-1i">terça, turno 1, início</label>
+                <input type="time" step="1800" id="d3-2-1i" name="d2i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-2-1f">terça, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-2-1f" name="d2f1">
+              </td>
+                            <td>
+                <label class="sr" for="d3-2-2i">terça, turno 2, início</label>
+                <input type="time" step="1800" id="d3-2-2i" name="d2i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-2-2f">terça, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-2-2f" name="d2f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Quarta</th>
+                            <td>
+                <label class="sr" for="d3-3-1i">quarta, turno 1, início</label>
+                <input type="time" step="1800" id="d3-3-1i" name="d3i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-3-1f">quarta, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-3-1f" name="d3f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d3-3-2i">quarta, turno 2, início</label>
+                <input type="time" step="1800" id="d3-3-2i" name="d3i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-3-2f">quarta, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-3-2f" name="d3f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Quinta</th>
+                            <td>
+                <label class="sr" for="d3-4-1i">quinta, turno 1, início</label>
+                <input type="time" step="1800" id="d3-4-1i" name="d4i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-4-1f">quinta, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-4-1f" name="d4f1">
+              </td>
+                            <td>
+                <label class="sr" for="d3-4-2i">quinta, turno 2, início</label>
+                <input type="time" step="1800" id="d3-4-2i" name="d4i2">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-4-2f">quinta, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-4-2f" name="d4f2">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Sexta</th>
+                            <td>
+                <label class="sr" for="d3-5-1i">sexta, turno 1, início</label>
+                <input type="time" step="1800" id="d3-5-1i" name="d5i1">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-5-1f">sexta, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-5-1f" name="d5f1">
+              </td>
+                            <td>
+                <label class="sr" for="d3-5-2i">sexta, turno 2, início</label>
+                <input type="time" step="1800" id="d3-5-2i" name="d5i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-5-2f">sexta, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-5-2f" name="d5f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Sábado</th>
+                            <td>
+                <label class="sr" for="d3-6-1i">sábado, turno 1, início</label>
+                <input type="time" step="1800" id="d3-6-1i" name="d6i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-6-1f">sábado, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-6-1f" name="d6f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d3-6-2i">sábado, turno 2, início</label>
+                <input type="time" step="1800" id="d3-6-2i" name="d6i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-6-2f">sábado, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-6-2f" name="d6f2" value="">
+              </td>
+                          </tr>
+                      <tr>
+              <th scope="row">Domingo</th>
+                            <td>
+                <label class="sr" for="d3-0-1i">domingo, turno 1, início</label>
+                <input type="time" step="1800" id="d3-0-1i" name="d0i1" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-0-1f">domingo, turno 1, fim</label>
+                <input type="time" step="1800" id="d3-0-1f" name="d0f1" value="">
+              </td>
+                            <td>
+                <label class="sr" for="d3-0-2i">domingo, turno 2, início</label>
+                <input type="time" step="1800" id="d3-0-2i" name="d0i2" value="">
+                <span aria-hidden="true">–</span>
+                <label class="sr" for="d3-0-2f">domingo, turno 2, fim</label>
+                <input type="time" step="1800" id="d3-0-2f" name="d0f2" value="">
+              </td>
+                          </tr>
+                    </tbody>
+        </table>
+        <button class="b b-lima" type="submit">Salvar expediente</button>
+      </form>
+    </details>
+      </section>
+
+  <section class="cartao" aria-labelledby="bloq-titulo">
+    <h2 id="bloq-titulo">Bloquear horários</h2>
+    <p class="sub">Feriado, folga, curso, manutenção. O período some do site na hora. Consultas já marcadas não são canceladas.</p>
+    <form class="bloq-form">
+      <input type="hidden" name="acao" value="bloquear">
+      <div class="f"><label for="b-dent">Quem</label>
+        <select id="b-dent" name="dentista"><option value="todos">Clínica inteira</option><option value="1">Dra. Helena Prado</option><option value="2">Dr. Caio Moreira</option><option value="3">Dra. Lívia Tanaka</option></select></div>
+      <div class="f"><label for="b-di">De</label><input id="b-di" type="date" name="data_ini" required ></div>
+      <div class="f"><label for="b-hi">Hora <span class="opc">(vazio = dia todo)</span></label><input id="b-hi" type="time" step="1800" name="hora_ini"></div>
+      <div class="f"><label for="b-df">Até</label><input id="b-df" type="date" name="data_fim" ></div>
+      <div class="f"><label for="b-hf">Hora</label><input id="b-hf" type="time" step="1800" name="hora_fim"></div>
+      <div class="f f-largo"><label for="b-mot">Motivo <span class="opc">(aparece só aqui)</span></label><input id="b-mot" type="text" name="motivo" maxlength="60" placeholder="Ex.: Feriado municipal"></div>
+      <button class="b b-escuro" type="submit">Bloquear</button>
+    </form>
+
+        
+        <p class="sub" id="bloq-vazio">Nenhum bloqueio futuro.</p>
+    <ul class="bloq-lista" id="bloq-lista"></ul>
+  </section>
+</main>
+<script src="/assets/js/demo/paginas.js?v=1" defer></script>
+</body>
+</html>

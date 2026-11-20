@@ -1,0 +1,15 @@
+# A Netlify publica só a versão estática (pasta demo/).
+# O código PHP (app/, bin/, public/) fica no repositório, mas não vai para o ar.
+[build]
+  publish = "demo"
+  command = ""
+
+# Endereços da versão PHP continuam funcionando.
+[[redirects]]
+  from = "/privacidade.php"
+  to = "/privacidade.html"
+  status = 301
+[[redirects]]
+  from = "/admin/login.php"
+  to = "/admin/login.html"
+  status = 301

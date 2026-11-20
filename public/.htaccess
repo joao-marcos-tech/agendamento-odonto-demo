@@ -1,0 +1,14 @@
+# Apache: aponte o DocumentRoot para esta pasta (public/).
+Options -Indexes
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always unset X-Powered-By
+  <FilesMatch "\.(woff2|mp4|webm|jpg|svg|css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+<FilesMatch "\.(sqlite|sqlite-wal|sqlite-shm|md|sh|log)$">
+  Require all denied
+</FilesMatch>
